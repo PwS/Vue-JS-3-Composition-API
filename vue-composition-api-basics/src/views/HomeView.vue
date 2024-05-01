@@ -1,24 +1,45 @@
 <template>
   <div class="home">
+
+<h2>{{ appTitle }}</h2>
+  <h3>{{ counterData.title }} : </h3>
     <div>
       <button @click="decreaseCounter" class="btn">-</button>
-      <span class="counter">{{ counter }}</span>
+      <span class="counter">{{ counterData.count }}</span>
       <button @click="increaseCounter" class="btn">+</button>
     </div>
+
+    <div class="edit">
+      <h4>Edot Counter Title:</h4>
+      <input v-model ="counterData.title"type="text">
+    </div>
+
   </div>
 </template>
 
 <!-- composition API - script setup pattern -->
 <script setup>
-import { ref } from 'vue'
+import { ref,reactive } from 'vue'
 
-const counter = ref(0)
+const appTitle='My Counter App'
+
+// const counter = ref(0),counterTitle = ref('Counter')
+
+
+// reactive object
+const counterData=reactive({
+  count:0,
+  title:"My Counter"
+
+})
 
 function decreaseCounter() {
-  counter.value--
+  // counter.value--
+  counterData.count--
 }
 function increaseCounter() {
-  counter.value++
+  // counter.value++
+  counterData.count++
 }
 
 </script>
@@ -73,5 +94,8 @@ export default{
 .counter {
   font-size: 40px;
   margin: 10px;
+},
+.edit{
+  margin: 60px;
 }
 </style>
