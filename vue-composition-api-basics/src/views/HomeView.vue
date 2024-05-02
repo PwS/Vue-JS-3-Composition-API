@@ -24,7 +24,7 @@
 
 <!-- composition API - script setup pattern -->
 <script setup>
-import { ref,reactive,computed,watch } from 'vue'
+import { ref,reactive,computed,watch, onBeforeMount,onMounted } from 'vue'
 
 const appTitle='My Counter App'
 
@@ -66,6 +66,14 @@ function increaseCounter(value,event) {
 //   console.log(event)
 //   counterData.count +=value
 // }
+
+
+onBeforeMount(()=>{
+  console.log('onBeforeMount')
+})
+
+onMounted(() => {
+  console.log('onMounted')})
 
 </script>
 
@@ -129,6 +137,13 @@ export default{
 //       }
 //     }
 //   },
+//   mounted () {
+//     //do stuff when component is loaded
+//     console.log('mounted')
+//   },
+//   unmounted () {
+//     console.log('unmounted')
+//   }
 // }
 // </script>
 
