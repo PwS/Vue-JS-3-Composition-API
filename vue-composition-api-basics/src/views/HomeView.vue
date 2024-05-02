@@ -24,10 +24,25 @@
 
 <!-- composition API - script setup pattern -->
 <script setup>
-import { ref,reactive,computed,watch, onBeforeMount,onMounted } from 'vue'
+/*
+imports
+*/
+import { ref,reactive,computed,watch,onMounted} from 'vue'
 
+
+/*
+appTitle
+*/
 const appTitle='My Counter App'
 
+onMounted(() => {
+  console.log('Stuff Related To App Title')
+})
+
+
+/*
+counter
+*/
 // const counter = ref(0),counterTitle = ref('Counter')
 
 // reactive object
@@ -67,14 +82,9 @@ function increaseCounter(value,event) {
 //   counterData.count +=value
 // }
 
-
-onBeforeMount(()=>{
-  console.log('onBeforeMount')
-})
-
 onMounted(() => {
-  console.log('onMounted')})
-
+  console.log('Stuff Related To Counter')
+})
 </script>
 
 <!-- composition API - setup function pattern -->
